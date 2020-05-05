@@ -11,7 +11,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "mrln\\DataTransfer\\": "src/"
+            "merlinface\\DataTransfer\\": "src/"
         }
     },
     "require": {

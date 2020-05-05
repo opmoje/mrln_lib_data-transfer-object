@@ -1,7 +1,7 @@
 <?php
 
 
-namespace mrln\DataTransfer;
+namespace merlinface\DataTransfer;
 
 
 use ReflectionClass;
