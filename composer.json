@@ -1,0 +1,20 @@
+{
+    "name": "mrln/data-transfer-object",
+    "description": "Common abstract class for creating DTO",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vladislav Begulov",
+            "email": "raytracer@yandex.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "mrln\\DataTransfer\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.0"
+    }
+}
