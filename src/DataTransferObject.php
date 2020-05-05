@@ -16,7 +16,9 @@ abstract class DataTransferObject
         foreach ($class->getProperties(ReflectionProperty::IS_PUBLIC) as $reflectionProperty){
             $property = $reflectionProperty->getName();
             $converted = $this->camelCaseTo_snake_case($property);
-            $this->{$property} = $parameters[$converted];
+            if (!empty($parameters[$converted])) {
+                $this->{$property} = $parameters[$converted];
+            }
         }
     }
 
