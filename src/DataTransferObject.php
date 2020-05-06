@@ -9,7 +9,7 @@ use ReflectionProperty;
 
 abstract class DataTransferObject
 {
-    private $messageId;
+    private $messageSharedId;
 
     public function __construct(array $parameters = [])
     {
@@ -26,12 +26,12 @@ abstract class DataTransferObject
 
     public function getMessageSharedId(): ?string
     {
-        return $this->messageId;
+        return $this->messageSharedId;
     }
 
     public function setMessageSharedId(string $id): self
     {
-        $this->messageId = $id;
+        $this->messageSharedId = $id;
 
         return $this;
     }
