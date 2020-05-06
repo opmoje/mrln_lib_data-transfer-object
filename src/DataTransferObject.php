@@ -24,12 +24,12 @@ abstract class DataTransferObject
         }
     }
 
-    public function getMessageId(string $id)
+    public function getMessageSharedId(): ?string
     {
         return $this->messageId;
     }
 
-    public function setMessageId(string $id): self
+    public function setMessageSharedId(string $id): self
     {
         $this->messageId = $id;
 
