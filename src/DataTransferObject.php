@@ -9,7 +9,14 @@ use ReflectionProperty;
 
 abstract class DataTransferObject
 {
-    private $messageSharedId;
+    // correlation id - unique identifier that indicates which request message this reply is for
+    public $__cid;
+    // transaction id - unique identifier of first message in the chain
+    public $__tid;
+    // the name of the service emitting the event.
+    public $__emit;
+    // The name of the service consuming the event.
+    public $__consume;
 
     public function __construct(array $parameters = [])
     {
@@ -24,14 +31,50 @@ abstract class DataTransferObject
         }
     }
 
-    public function getMessageSharedId(): ?string
+    public function getCorrelationId(): ?string
     {
-        return $this->messageSharedId;
+        return $this->__cid;
     }
 
-    public function setMessageSharedId(string $id): self
+    public function setCorrelationId($cid): self
     {
-        $this->messageSharedId = $id;
+        $this->__cid = $cid;
+
+        return $this;
+    }
+
+    public function getTransactionId(): ?string
+    {
+        return $this->__tid;
+    }
+
+    public function setTransactionId($tid): self
+    {
+        $this->__tid = $tid;
+
+        return $this;
+    }
+
+    public function getWhoEmitted(): ?string
+    {
+        return $this->__emit;
+    }
+
+    public function setWhoEmitted($emit): self
+    {
+        $this->__emit = $emit;
+
+        return $this;
+    }
+
+    public function getWhoConsumed(): ?string
+    {
+        return $this->__consume;
+    }
+
+    public function setWhoConsumed(string $consume): self
+    {
+        $this->__consume = $consume;
 
         return $this;
     }
