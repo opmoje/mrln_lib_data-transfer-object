@@ -9,6 +9,9 @@ use ReflectionProperty;
 
 abstract class DataTransferObject
 {
+    public $__cid;
+    public $__emit;
+
     public function __construct(array $parameters = [])
     {
         $class = new ReflectionClass(static::class);
@@ -20,6 +23,17 @@ abstract class DataTransferObject
                 $this->{$property} = $parameters[$converted];
             }
         }
+    }
+
+    // correlation id - unique identifier that indicates which request message this reply is for
+    public function getCorrelationId(): ?string
+    {
+        return !empty($this->__cid) ? $this->__cid : null;
+    }
+
+    public function getWhoEmitted(): ?string
+    {
+        return !empty($this->__emit) ? $this->__emit : null;
     }
 
     private function camelCaseTo_snake_case(string $input)
