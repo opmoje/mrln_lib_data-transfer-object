@@ -22,6 +22,9 @@ abstract class DataTransferObject
             if (!empty($parameters[$converted])) {
                 $this->{$property} = $parameters[$converted];
             }
+            elseif (!empty($parameters[$property])) {
+                $this->{$property} = $parameters[$property];
+            }
         }
     }
 
