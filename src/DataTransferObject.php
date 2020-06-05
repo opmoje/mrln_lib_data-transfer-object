@@ -39,6 +39,15 @@ abstract class DataTransferObject
         return !empty($this->__emit) ? $this->__emit : null;
     }
 
+    public function getWhichServiceEmitted(): ?string
+    {
+        if (!empty($this->__emit) && preg_match('/^([^.]+)/', $this->__emit, $match)) {
+            return (string)$match[1];
+        }
+
+        return null;
+    }
+
     private function camelCaseTo_snake_case(string $input)
     {
         return strtolower(
