@@ -11,6 +11,7 @@ abstract class DataTransferObject
 {
     public $__cid;
     public $__emit;
+    public $__to;
 
     public function __construct(array $parameters = [])
     {
@@ -37,6 +38,11 @@ abstract class DataTransferObject
     public function getWhoEmitted(): ?string
     {
         return !empty($this->__emit) ? $this->__emit : null;
+    }
+
+    public function getEmittedFor(): ?string
+    {
+        return $this->__to ?? null;
     }
 
     public function getWhichServiceEmitted(): ?string
